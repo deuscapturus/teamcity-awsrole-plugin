@@ -19,6 +19,14 @@ public class AwsRoleUtil {
         return roleArn;
     }
 
+    public static String getIAMAccessKeyId(Map<String, String> params) {
+       return params.getOrDefault(AwsRoleConstants.ACCESS_KEY_ID_PARAMETER, "");
+    }
+
+    public static String getIAMSecretKey(Map<String, String> params) {
+       return params.getOrDefault(AwsRoleConstants.SECRET_ACCESS_KEY_PARAMETER, "");
+    }
+
     public static String getExternalId(Map<String, String> params) {
         return params.getOrDefault(AwsRoleConstants.EXTERNAL_ID_PARAMETER, "");
     }

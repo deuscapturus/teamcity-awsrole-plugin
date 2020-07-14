@@ -6,12 +6,16 @@ import com.intellij.openapi.diagnostic.Logger;
 import jetbrains.buildServer.serverSide.*;
 import jetbrains.buildServer.web.openapi.PluginDescriptor;
 import org.jetbrains.annotations.NotNull;
+import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
+import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
+import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 import software.amazon.awssdk.core.client.config.ClientOverrideConfiguration;
 import software.amazon.awssdk.core.client.config.SdkAdvancedClientOption;
 import software.amazon.awssdk.services.sts.StsClient;
 import software.amazon.awssdk.services.sts.model.AssumeRoleRequest;
 import software.amazon.awssdk.services.sts.model.AssumeRoleResponse;
 import software.amazon.awssdk.services.sts.model.Credentials;
+import software.amazon.awssdk.services.sts.StsClientBuilder;
 import software.amazon.awssdk.services.sts.model.Tag;
 
 import java.net.URI;
@@ -36,7 +40,14 @@ public class Injector implements ParametersPreprocessor {
                 .builder()
                 .putAdvancedOption(SdkAdvancedClientOption.USER_AGENT_SUFFIX, userAgentSuffix)
                 .build();
-        this.client = StsClient.builder().overrideConfiguration(coc).build();
+
+        StsClientBuilder scb = StsClient.builder().overrideConfiguration(coc);
+
+        //if ((AwsRoleConstants.ACCESS_KEY_ID_PARAMETER != "") && (AwsRoleConstants.SECRET_ACCESS_KEY_PARAMETER != "")) {
+        //    AwsCredentialsProvider creds = StaticCredentialsProvider.create(AwsBasicCredentials.create(AwsRoleConstants.ACCESS_KEY_ID_PARAMETER, AwsRoleConstants.SECRET_ACCESS_KEY_PARAMETER));
+        //    scb.credentialsProvider(creds);
+        //}
+        this.client = scb.build();
     }
 
     private void logMap(Map<String, String> map) {
