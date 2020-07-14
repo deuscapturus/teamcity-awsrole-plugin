@@ -1,11 +1,11 @@
 package com.glassechidna.teamcity.awsrole;
 
 public class AwsRoleParametersProvider {
-    public String getIAMAccessKeyId() {
+    public String getIamAccessKeyId() {
         return AwsRoleConstants.ACCESS_KEY_ID_PARAMETER;
     }
 
-    public String getIAMSecretKey() {
+    public String getIamSecretKey() {
         return AwsRoleConstants.SECRET_ACCESS_KEY_PARAMETER;
     }
 

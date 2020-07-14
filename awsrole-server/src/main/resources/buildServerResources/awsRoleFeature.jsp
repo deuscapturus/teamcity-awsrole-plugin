@@ -23,7 +23,7 @@
 </tr>
 <tr>
     <th>
-        <label for="${params.iamAccessKeyId}"> IAM Access Key ID: <l:star/></label>
+        <label for="${params.iamAccessKeyId}"> IAM Access Key ID:</label>
     </th>
     <td>
         <props:textProperty name="${params.iamAccessKeyId}" className="longField"/>
@@ -32,7 +32,7 @@
 </tr>
 <tr>
     <th>
-        <label for="${params.iamAccessKeyId}"> IAM Secret Access Key: <l:star/></label>
+        <label for="${params.iamAccessKeyId}"> IAM Secret Access Key:</label>
     </th>
     <td>
         <props:passwordProperty name="${params.iamSecretKey}" className="longField"/>
