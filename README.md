@@ -38,6 +38,9 @@ features {
 }
 ```
 
+Optionally, a AWS IAM user with `sts:AssumeRole` permissions can be specified in the
+build feature parameters instead of using the server credentials.
+
 Whenever a build with this feature  is started, the **server** assumes the 
 requested role and sets `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and 
 `AWS_SESSION_TOKEN` environment variables for the build. 
