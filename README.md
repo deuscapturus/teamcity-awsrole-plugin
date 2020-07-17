@@ -18,6 +18,8 @@ effort or granting permissions that are too powerful.
 
 ## The solution
 
+![Screenshot](screenshot.png)
+
 The TeamCity **server** should have an IAM role that has `sts:AssumeRole` permissions
 to assume roles needed by build steps. Build configurations add a build feature 
 configured like so:
